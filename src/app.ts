@@ -43,7 +43,10 @@ function validateMission(mission: string): boolean {
         'CRW- Empleado A',
         'CRW- Empleado Jefe'
     ];
-    return validMissions.includes(mission);
+    for (let item of validMissions) {
+        if (mission.startsWith(item)) return true;
+    }
+    return false;
 }
 
 function validateGroup(groups: any[]): boolean {
