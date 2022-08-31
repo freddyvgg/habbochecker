@@ -20,13 +20,15 @@
     "url": "https://github.com/freddyvgg/CrownSecurityChecker/issues"
   },
   "homepage": "https://github.com/freddyvgg/CrownSecurityChecker#readme",
-  "dependencies": {
-    "webpack": "^5.74.0"
-  },
   "devDependencies": {
     "@types/jquery": "^3.5.14",
+    "copy-webpack-plugin": "^11.0.0",
     "ts-loader": "^9.3.1",
     "typescript": "^4.8.2",
+    "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0"
+  },
+  "dependencies": {
+    "jquery": "^3.6.1"
   }
 }

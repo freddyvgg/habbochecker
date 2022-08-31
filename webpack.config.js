@@ -1,22 +1,33 @@
 const path = require('path');
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
     entry: './src/app.ts',
     mode: 'development',
     module: {
-        rules: [
+      rules: [
+        {
+          test: /\.tsx?$/,
+          use: 'ts-loader',
+          exclude: /node_modules/,
+        },
+      ],
+    },
+    resolve: {
+      extensions: ['.tsx', '.ts', '.js'],
+    },
+    output: {
+      filename: 'app.js',
+      path: path.resolve(__dirname, 'dist'),
+    },
+    plugins: [
+      new CopyPlugin({
+        patterns: [
           {
-            test: /\.tsx?$/,
-            use: 'ts-loader',
-            exclude: /node_modules/,
-          },
-        ],
-      },
-      resolve: {
-        extensions: ['.tsx', '.ts', '.js'],
-      },
-      output: {
-        filename: 'app.js',
-        path: path.resolve(__dirname, 'dist'),
-      }
+            from: path.resolve(__dirname, 'src', 'index.html'),
+            to: path.resolve(__dirname, 'dist', 'index.html')
+          }
+        ]
+      })
+    ]
 }
