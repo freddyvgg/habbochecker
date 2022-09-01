@@ -2,7 +2,7 @@ import { Cloth } from "../src/HabboValidator";
 
 test('Cloth.compareCloth', () => {
     let ref = new Cloth("ch-01-01");
-    expect(ref.compareCloth(new Cloth('ch-01-01'))).toBe(10);
+    expect(ref.compareCloth(new Cloth('ch-01-01'))).toBe(0);
     expect(ref.compareCloth(new Cloth('xx-01-01'))).toBe(1);
     expect(ref.compareCloth(new Cloth('ch-00-01'))).toBe(2);
     expect(ref.compareCloth(new Cloth('xx-00-01'))).toBe(3);
