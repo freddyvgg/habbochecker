@@ -30,9 +30,8 @@ $(function() {
         if (validationResult.errors.length !== 0) {
             let errorHtml = "<ul>" + validationResult.errors.map(err => "<li>" + err + "</li>").join("") + "</ul>" ;
             $("#habboErrors").html(errorHtml);
-            $("#habboErrors").show();
         } else {
-            $("#habboErrors").hide();
+            $("#habboErrors").text("Permitido!!");
         }
     });
 });

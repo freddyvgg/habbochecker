@@ -1,0 +1,3 @@
+sonar.organization=freddyvgg
+sonar.projectKey=freddyvgg_freddyvgg.github.io
+sonar.sources=.
