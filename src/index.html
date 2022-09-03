@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Crown Security Checker</title>
-        <script src="app.js"></script>
+        <script src="scripts/app.js"></script>
     </head>
     <body>
         <div>
-            <label>Nombre:</label>
-            <input type="text" id="name" />
-            <button id="submit">Buscar</button>
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" />
+            <button type="button" id="submit">Buscar</button>
         </div>
         <div id="result">
             <img id="habboPicture" alt="Foto de perfil" />

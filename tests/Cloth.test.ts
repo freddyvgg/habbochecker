@@ -1,4 +1,4 @@
-import { Cloth } from "../src/HabboValidator";
+import { Cloth } from '../src/scripts/validator/Cloth'
 
 test('Cloth.compareCloth', () => {
     let ref = new Cloth("ch-01-01");

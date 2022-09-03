@@ -1,5 +1,8 @@
 import * as $ from "jquery";
-import { HabboChecker, Uniform, Cloth } from "./HabboValidator";
+import { HabboChecker } from "./validator/HabboChecker";
+import { Cloth } from "./validator/Cloth";
+import { Uniform } from "./validator/Unform";
+import '../styles/app.css';
 
 let habboChecker = new HabboChecker({
     groupId: "g-hhes-956c81f7687a427308fe259fa1e7b067",
@@ -11,6 +14,9 @@ let habboChecker = new HabboChecker({
 });
 
 $(function() {
+    $("#habboPicture").hide();
+    $("#habboName").hide();
+    $("#habboMission").hide();
     $("#submit").on('click', async function() {
         let name = String($("#name").val());
         let validationResult = await habboChecker.check(name);
@@ -30,8 +36,12 @@ $(function() {
         if (validationResult.errors.length !== 0) {
             let errorHtml = "<ul>" + validationResult.errors.map(err => "<li>" + err + "</li>").join("") + "</ul>" ;
             $("#habboErrors").html(errorHtml);
+            $("#habboErrors").addClass("error");
+            $("#habboErrors").removeClass("success");
         } else {
             $("#habboErrors").text("Permitido!!");
+            $("#habboErrors").removeClass("error");
+            $("#habboErrors").addClass("success");
         }
     });
 });

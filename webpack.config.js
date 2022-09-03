@@ -2,7 +2,7 @@ const path = require('path');
 const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-    entry: './src/app.ts',
+    entry: './src/scripts/app.ts',
     mode: 'development',
     module: {
       rules: [
@@ -11,21 +11,26 @@ module.exports = {
           use: 'ts-loader',
           exclude: /node_modules/,
         },
+        {
+          test: /\.css$/i,
+          use: ["style-loader", "css-loader"],
+        }
       ],
     },
     resolve: {
       extensions: ['.tsx', '.ts', '.js'],
     },
     output: {
-      filename: 'app.js',
-      path: path.resolve(__dirname, 'dist'),
+      path: path.resolve(__dirname, 'dist', 'scripts'),
+      filename: 'app.js'
     },
     plugins: [
       new CopyPlugin({
         patterns: [
           {
-            from: path.resolve(__dirname, 'src', 'index.html'),
-            to: path.resolve(__dirname, 'dist', 'index.html')
+            context: path.resolve(__dirname, 'src'),
+            from: "*.html",
+            to: path.resolve(__dirname, 'dist')
           }
         ]
       })
