@@ -4,7 +4,7 @@
   "description": "Checker for Crown",
   "main": "app.js",
   "scripts": {
-    "test": "jest test",
+    "test": "jest --coverage",
     "build": "webpack"
   },
   "repository": {
