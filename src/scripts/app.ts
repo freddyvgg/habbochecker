@@ -15,7 +15,9 @@ let habboChecker = new HabboChecker({
 });
 
 $(async function() {
-    await Localizer.load('lang');
+    const urlParams = new URLSearchParams(window.location.search);
+    let lang = urlParams.get('lang');
+    await Localizer.load(lang);
     $("#habboPicture").hide();
     $("#habboName").hide();
     $("#habboMission").hide();

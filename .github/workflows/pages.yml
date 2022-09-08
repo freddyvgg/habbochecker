@@ -30,7 +30,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: npm ci --force
+      - run: npm ci
       - run: npm test
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
@@ -46,7 +46,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: npm ci --force
+      - run: npm ci
       - run: npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v2
@@ -55,7 +55,7 @@ jobs:
         with:
           path: 'dist'
   deploy:
-    needs: [build]
+    needs: [build, test]
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

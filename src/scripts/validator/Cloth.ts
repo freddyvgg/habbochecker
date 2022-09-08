@@ -1,3 +1,5 @@
+import { Localizer } from "../localization/Localizer";
+
 export class Cloth {
     public static SHIRT_TYPE = "ch";
     public static PANTS_TYPE = "lg";
@@ -35,30 +37,30 @@ export class Cloth {
     public static getErrorMessage(error: number): string {
         switch (error) {
             case 0:
-                return "Ok";
+                return Localizer.get("MSG_HABBO_OK");
             case 2:
-                return "Modelo incorrecto.";
+                return Localizer.get("ERR_HABBO_MODEL");
             case 4:
-                return "Color incorrecto.";
+                return Localizer.get("ERR_HABBO_COLOR");
             case 6:
-                return "Modelo y color incorrecto.";
+                return Localizer.get("ERR_HABBO_MODEL_COLOR");
             default:
-                return "Tipos no coinciden.";
+                return Localizer.get("ERR_HABBO_TYPE");
         }
     }
 
     public static getTypeName(type: string) {
         switch (type) {
             case Cloth.SHIRT_TYPE:
-                return "Camisa";
+                return Localizer.get("LBL_CLOTH_SHIRT");
             case Cloth.PANTS_TYPE:
-                return "Pantalones";
+                return Localizer.get("LBL_CLOTH_PANTS");
             case Cloth.SHOES_TYPE:
-                return "Zapatos";
+                return Localizer.get("LBL_CLOTH_SHOES");
             case Cloth.BELT_TYPE:
-                return "Correa";
+                return Localizer.get("LBL_CLOTH_BELT");
             case Cloth.JACKET_TYPE:
-                return "Chaqueta";
+                return Localizer.get("LBL_CLOTH_JACKET");
         }
     }
 }
