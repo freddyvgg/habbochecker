@@ -1,6 +1,5 @@
 import { Cloth } from "./Cloth";
 
-
 export class Uniform {
     private _cloths: { [type: string]: Cloth; } = {}
     private _forhiddenTypes: string[];

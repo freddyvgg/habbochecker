@@ -1,3 +1,4 @@
+import { test, expect } from '@jest/globals'
 import { Cloth } from '../src/scripts/validator/Cloth'
 
 test('Cloth.compareCloth', () => {

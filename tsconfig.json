@@ -6,5 +6,8 @@
     "allowJs": true,
     "moduleResolution": "node",
     "outDir": "./dist/",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
   }
 }

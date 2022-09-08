@@ -4,6 +4,7 @@ const CopyPlugin = require("copy-webpack-plugin");
 module.exports = {
     entry: './src/scripts/app.ts',
     mode: 'development',
+    devtool: 'source-map',
     module: {
       rules: [
         {
@@ -31,6 +32,11 @@ module.exports = {
             context: path.resolve(__dirname, 'src'),
             from: "*.html",
             to: path.resolve(__dirname, 'dist')
+          },
+          {
+            context: path.resolve(__dirname, 'res'),
+            from: "**/*",
+            to: path.resolve(__dirname, 'dist', 'res')
           }
         ]
       })

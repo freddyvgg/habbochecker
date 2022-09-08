@@ -1,8 +1,9 @@
-import * as $ from "jquery";
+import $ from "jquery";
 import { HabboChecker } from "./validator/HabboChecker";
 import { Cloth } from "./validator/Cloth";
 import { Uniform } from "./validator/Unform";
 import '../styles/app.css';
+import { Localizer } from "./localization/Localizer";
 
 let habboChecker = new HabboChecker({
     groupId: "g-hhes-956c81f7687a427308fe259fa1e7b067",
@@ -13,7 +14,8 @@ let habboChecker = new HabboChecker({
     new Uniform([new Cloth('ch-3013-92'), new Cloth('lg-3006-110-92'), new Cloth('sh-725-92'), new Cloth('wa-3073-110')], [Cloth.JACKET_TYPE])]
 });
 
-$(function() {
+$(async function() {
+    await Localizer.load('lang');
     $("#habboPicture").hide();
     $("#habboName").hide();
     $("#habboMission").hide();
