@@ -2,7 +2,7 @@ export class Localizer {
     private static _default: { [id: string]: string };
     private static _resource: { [id: string]: string};
     
-    public static async load(language: string = null) {
+    public static load(language: string = null) {
         Localizer._default = require ('../../../res/lang/lang.json');
         if (!language) {
             Localizer._resource = Localizer._default;
@@ -23,5 +23,14 @@ export class Localizer {
         } else {
             return key;
         }
+    }
+
+    public static format(str: string, param: string[]): string {
+        if (param) {
+            param.forEach((value, index) => {
+                str = str.replace("{" + index + "}", value);
+            });
+        }
+        return str;
     }
 }

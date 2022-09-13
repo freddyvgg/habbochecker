@@ -1,3 +1,4 @@
+import { Localizer } from "../localization/Localizer";
 import { Cloth } from "./Cloth";
 
 export class Uniform {
@@ -18,14 +19,15 @@ export class Uniform {
             if (otherCloth) {
                 let error = this._cloths[key].compareCloth(otherCloth);
                 if (error!=0) {
-                    errors.push(Cloth.getTypeName(key) + ": " + Cloth.getErrorMessage(error));
+                    errors.push(Localizer.format(Cloth.getErrorMessage(error), [Cloth.getTypeName(key)]));
                 }
             } else {
-                errors.push("Sin " + Cloth.getTypeName(key));
+                errors.push(Localizer.format(Localizer.get("ERR_HABBO_NO_CLOTH"),[Cloth.getTypeName(key)]));
             }
         }
 
-        this._forhiddenTypes.filter(type => other._cloths.hasOwnProperty(type)).forEach(type=> errors.push(Cloth.getTypeName(type) + " Prohibida."));
+        this._forhiddenTypes.filter(type => other._cloths.hasOwnProperty(type)).forEach(type=> errors.push(
+            Localizer.format(Localizer.get("ERR_HABBO_FORBHIDDEN"), [Cloth.getTypeName(type)])));
         return errors;
     }
 }

@@ -6,28 +6,34 @@ describe('Localizer', () => {
         jest.mock('../res/lang/lang.json', () => {
             return {
                 first: "first",
-                secound: "secound"
+                second: "second"
             };
         });
     })
-    it('load default', async () => {
-        await Localizer.load();
+    it('load default', () => {
+        Localizer.load();
         expect(Localizer.get("first")).toBe("first");
         expect(Localizer.get("NOT_FOUND")).toBe("NOT_FOUND");
     });
-    it('load es', async () => {
+    it('load es', () => {
         jest.mock('../res/lang/lang.es.json', () => {
             return {
                 first: "primero"
             };
         });
-        await Localizer.load('es');
+        Localizer.load('es');
         expect(Localizer.get("first")).toBe("primero");
-        expect(Localizer.get("secound")).toBe("secound");
+        expect(Localizer.get("second")).toBe("second");
     });
-    it('load not found', async () => {
-        await Localizer.load('bad');
+    it('load not found', () => {
+        Localizer.load('bad');
         expect(Localizer.get("first")).toBe("first");
-        expect(Localizer.get("secound")).toBe("secound");
+        expect(Localizer.get("second")).toBe("second");
+    });
+    it('format', () => {
+        let result = Localizer.format("{0} - {1}", ["first", "second"]);
+        expect(result).toBe("first - second");
+        result = Localizer.format("{1} - {0}", ["first", "second"]);
+        expect(result).toBe("second - first");
     });
 });

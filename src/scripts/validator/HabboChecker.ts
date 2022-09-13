@@ -3,6 +3,7 @@ import { IRules } from "./IRules";
 import { IValidationResult } from "./IValidationResult";
 import { Cloth } from "./Cloth";
 import { Uniform } from "./Unform";
+import { Localizer } from "../localization/Localizer";
 
 export class HabboChecker {
     private _rules: IRules;
@@ -19,12 +20,13 @@ export class HabboChecker {
                 type: "GET"
             });
         } catch (error) {
-            return { errors: ["Habbo no encontrado"] };
+            console.log("Habbo not found " + JSON.stringify(error));
+            return { errors: [Localizer.get("ERR_HABBO_NOT_FOUND")] };
         }
 
         let errors: string[] = [];
         if (!this.validateMission(user.motto)) {
-            errors.push("Mision incorrecta.");
+            errors.push(Localizer.get("ERR_HABBO_WRONG_MOTTO"));
         }
 
         try {
@@ -33,10 +35,10 @@ export class HabboChecker {
                 type: "GET"
             });
             if (!this.validateGroup(profile.groups.map((group: { id: string; }) => group.id))) {
-                errors.push("No es miembro del grupo.");
+                errors.push(Localizer.get("ERR_HABBO_GROUP_NOT_FOUND"));
             }
         } catch (error) {
-            errors.push("El perfil no es publico. No se puede verificar el grupo.");
+            errors.push(Localizer.get("ERR_HABBO_PROFILE_NOT_PUBLIC"));
         }
 
         errors.push(...this.getUniformErrors(user.figureString));
