@@ -1,4 +1,3 @@
-import $ from "jquery";
 import { HabboChecker } from "./validator/HabboChecker";
 import { Cloth } from "./validator/Cloth";
 import { Uniform } from "./validator/Unform";
@@ -14,38 +13,47 @@ let habboChecker = new HabboChecker({
     new Uniform([new Cloth('ch-3013-92'), new Cloth('lg-3006-110-92'), new Cloth('sh-725-92'), new Cloth('wa-3073-110')], [Cloth.JACKET_TYPE])]
 });
 
-$(async function() {
+window.onload = async function () {
     const urlParams = new URLSearchParams(window.location.search);
     let lang = urlParams.get('lang');
-    await Localizer.load(lang);
-    $("#habboPicture").hide();
-    $("#habboName").hide();
-    $("#habboMission").hide();
-    $("#submit").on('click', async function() {
-        let name = String($("#name").val());
+    Localizer.load(lang);
+    var habboPicture = document.getElementById("habboPicture") as HTMLImageElement;
+    var habboName = document.getElementById("habboName");
+    var textName = habboName.getElementsByTagName("span")[0];
+    var habboMission = document.getElementById("habboMission");
+    var textMission = habboMission.getElementsByTagName("span")[0];
+    var habboErrors = document.getElementById("habboErrors");
+    var btnSubmit = document.getElementById("submit");
+    var inputName = document.getElementById("name") as HTMLInputElement;
+
+    habboPicture.hidden = true;
+    habboName.hidden = true;
+    habboMission.hidden = true;
+
+    btnSubmit.onclick = async function() {
+        let name = inputName.value;
         let validationResult = await habboChecker.check(name);
         if (validationResult.user) {
-            $("#habboPicture").attr('src','https://www.habbo.es/habbo-imaging/avatarimage?direction=2&&head_direction=2&&figure='+ validationResult.user.figureString);
-            $("#habboName>span").text(validationResult.user.name);
-            $("#habboMission>span").text(validationResult.user.motto);
-            $("#habboPicture").show();
-            $("#habboName").show();
-            $("#habboMission").show();
+            habboPicture.src = 'https://www.habbo.es/habbo-imaging/avatarimage?direction=2&&head_direction=2&&figure='+ validationResult.user.figureString;
+            textName.innerText = validationResult.user.name;
+            textMission.innerText = validationResult.user.motto;
+            habboPicture.hidden = false;
+            habboName.hidden = false;
+            habboMission.hidden = false;
         } else {
-            $("#habboPicture").hide();
-            $("#habboName").hide();
-            $("#habboMission").hide();
+            habboPicture.hidden = true;
+            habboName.hidden = true;
+            habboMission.hidden = true;
         }
 
         if (validationResult.errors.length !== 0) {
             let errorHtml = "<ul>" + validationResult.errors.map(err => "<li>" + err + "</li>").join("") + "</ul>" ;
-            $("#habboErrors").html(errorHtml);
-            $("#habboErrors").addClass("error");
-            $("#habboErrors").removeClass("success");
+            habboErrors.innerHTML = errorHtml;
+            habboErrors.className = "error";
         } else {
-            $("#habboErrors").text("Permitido!!");
-            $("#habboErrors").removeClass("error");
-            $("#habboErrors").addClass("success");
+            habboErrors.innerHTML = "Permitido!!";
+            habboErrors.className = "success";
         }
-    });
-});
+    }
+
+}
