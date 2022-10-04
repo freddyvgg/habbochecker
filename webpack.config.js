@@ -1,8 +1,12 @@
 const path = require('path');
+const glob = require('glob');
 const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-    entry: './src/scripts/app.ts',
+    entry: glob.sync('./src/scripts/pages/*.ts').reduce((files, path) => {
+      const name = path.split('/').pop().replace(/\.[^]+$/, '')
+      return { ...files, [name]: path }
+    }, {}),
     mode: 'development',
     devtool: 'source-map',
     module: {
@@ -23,7 +27,7 @@ module.exports = {
     },
     output: {
       path: path.resolve(__dirname, 'dist', 'scripts'),
-      filename: 'app.js'
+      filename: '[name].js'
     },
     plugins: [
       new CopyPlugin({

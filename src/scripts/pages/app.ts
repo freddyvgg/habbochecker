@@ -1,8 +1,8 @@
-import { HabboChecker } from "./validator/HabboChecker";
-import { Cloth } from "./validator/Cloth";
-import { Uniform } from "./validator/Unform";
-import '../styles/app.css';
-import { Localizer } from "./localization/Localizer";
+import { HabboChecker } from "../validator/HabboChecker";
+import { Cloth } from "../validator/Cloth";
+import { Uniform } from "../validator/Unform";
+import '../../styles/app.css';
+import { Localizer } from "../localization/Localizer";
 
 let habboChecker = new HabboChecker({
     groupId: "g-hhes-956c81f7687a427308fe259fa1e7b067",
