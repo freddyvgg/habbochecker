@@ -2,8 +2,8 @@ import { describe, it, expect, beforeAll, jest } from '@jest/globals'
 import { Localizer } from '../src/scripts/localization/Localizer';
 import { Cloth } from '../src/scripts/validator/Cloth'
 
-let ref: Cloth;
 describe('Cloth', () => {
+    let ref: Cloth;
     beforeAll(() => {
         ref = new Cloth("ch-01-01");
         Localizer.get = (key: string) => {

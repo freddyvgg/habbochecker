@@ -1,3 +1,18 @@
 {
-    "MSG_HABBO_OK": "Allowed!"
+    "MSG_HABBO_OK": "Allowed!",
+    "ERR_HABBO_MODEL": "Model of {0} is wrong.",
+    "ERR_HABBO_COLOR": "Color of {0} is wrong.",
+    "ERR_HABBO_MODEL_COLOR": "Model and color of {0} are wrong.",
+    "ERR_HABBO_TYPE": "Wrong type.",
+    "ERR_HABBO_NO_CLOTH": "No {0}.",
+    "ERR_HABBO_FORBHIDDEN": "{0} not allowed.",
+    "LBL_CLOTH_SHIRT": "Shirt",
+    "LBL_CLOTH_PANTS": "Pants",
+    "LBL_CLOTH_SHOES": "Shoes",
+    "LBL_CLOTH_BELT": "Belt",
+    "LBL_CLOTH_JACKET": "Jacket",
+    "ERR_HABBO_NOT_FOUND": "Habbo not found.",
+    "ERR_HABBO_WRONG_MOTTO": "Wrong motto.",
+    "ERR_HABBO_GROUP_NOT_FOUND": "Group not found.",
+    "ERR_HABBO_PROFILE_NOT_PUBLIC": "Habbo Profile is not public."
 }

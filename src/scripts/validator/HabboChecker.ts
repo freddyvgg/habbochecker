@@ -1,8 +1,10 @@
-import * as $ from "jquery";
 import { IRules } from "./IRules";
 import { IValidationResult } from "./IValidationResult";
 import { Cloth } from "./Cloth";
 import { Uniform } from "./Unform";
+import { Localizer } from "../localization/Localizer";
+import { HabboApi } from "./api/HabboApi";
+import { IUser } from "./api/IUser";
 
 export class HabboChecker {
     private _rules: IRules;
@@ -12,31 +14,25 @@ export class HabboChecker {
     }
 
     public async check(name: string): Promise<IValidationResult> {
-        let user;
+        let user: IUser;
         try {
-            user = await $.ajax({
-                url: "https://www.habbo.es/api/public/users?name="+name, 
-                type: "GET"
-            });
+            user = await HabboApi.getUserByName(name);
         } catch (error) {
-            return { errors: ["Habbo no encontrado"] };
+            return { errors: [Localizer.get("ERR_HABBO_NOT_FOUND")] };
         }
 
         let errors: string[] = [];
         if (!this.validateMission(user.motto)) {
-            errors.push("Mision incorrecta.");
+            errors.push(Localizer.get("ERR_HABBO_WRONG_MOTTO"));
         }
 
         try {
-            let profile = await $.ajax({
-                url: "https://www.habbo.es/api/public/users/"+user.uniqueId+"/profile", 
-                type: "GET"
-            });
+            let profile = await HabboApi.getProfile(user.uniqueId);
             if (!this.validateGroup(profile.groups.map((group: { id: string; }) => group.id))) {
-                errors.push("No es miembro del grupo.");
+                errors.push(Localizer.get("ERR_HABBO_GROUP_NOT_FOUND"));
             }
         } catch (error) {
-            errors.push("El perfil no es publico. No se puede verificar el grupo.");
+            errors.push(Localizer.get("ERR_HABBO_PROFILE_NOT_PUBLIC"));
         }
 
         errors.push(...this.getUniformErrors(user.figureString));
