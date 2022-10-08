@@ -7,21 +7,51 @@
         <script src="scripts/app.js"></script>
     </head>
     <body>
-        <div id="menu">
-            <ul>
-                <li><a href="create.html">Crear Reglas</a></li>
-            </ul>
+        <div class="region model">
+            <div class="title">Modelo</div>
+            <div class="content">
+                <div class="missions">
+                    <div class="title">Misiones</div>
+                    <ul>
+                        <li>Aspirante</li>
+                        <li>Empleado</li>
+                    </ul>
+                </div>
+                <div class="group">
+                    <div class="title">Grupos</div>
+                    <ul>
+                        <li>
+                            <div><img src="https://www.habbo.es/habbo-imaging/badge/b09114s02115t50177s78014s55010474fece9f8147480b0f2cabbb306ce12.gif" alt="Grupo"/></div>
+                            <div>¥Crown¥Agente¥</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="uniforms">
+                    <div class="title">Uniformes</div>
+                    <ul>
+                        <li><img alt="Modelo 1" src="https://www.habbo.es/habbo-imaging/avatarimage?direction=2&&head_direction=2&&figure=ch-3109-1408-1408.lg-3023-1408.sh-290-1408.wa-3074-1408-1408" /></li>
+                        <li><img alt="Modelo 2" src="https://www.habbo.es/habbo-imaging/avatarimage?direction=2&&head_direction=2&&figure=ch-3030-92.lg-3023-110.sh-290-92.wa-3264-92-92" /></li>
+                        <li><img alt="Modelo 3" src="https://www.habbo.es/habbo-imaging/avatarimage?direction=2&&head_direction=2&&figure=ch-665-1408.lg-3216-1408.sh-725-1408.wa-3074-1408-1408" /></li>
+                        <li><img alt="Modelo 4" src="https://www.habbo.es/habbo-imaging/avatarimage?direction=2&&head_direction=2&&figure=ch-3013-92.lg-3006-110-92.sh-725-92.wa-3073-110" /></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div>
-            <label for="name">Nombre:</label>
-            <input type="text" id="name" name="name" />
-            <button type="button" id="submit">Buscar</button>
-        </div>
-        <div id="result">
-            <img id="habboPicture" alt="Foto de perfil" />
-            <div id="habboName"><label>Nombre:</label><span></span></div>
-            <div id="habboMission"><label>Mision:</label><span></span></div>
-            <div id="habboErrors"></div>
+        <div class="region">
+            <div class="title">Evaluar</div>
+            <div class="content">
+                <div>
+                    <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="name" />
+                    <button type="button" id="submit">Buscar</button>
+                </div>
+                <div id="result">
+                    <img id="habboPicture" alt="Foto de perfil" />
+                    <div id="habboName"><label>Nombre:</label><span></span></div>
+                    <div id="habboMission"><label>Mision:</label><span></span></div>
+                    <div id="habboErrors"></div>
+                </div>
+            </div>
         </div>
     </body>
 </html>

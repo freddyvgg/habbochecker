@@ -22,3 +22,46 @@ input[type=text], button {
 .success {
     color:rgb(57, 252, 99)
 }
+
+.region {
+    border: 1px solid #AAA;
+    border-radius: 10px;
+    position: relative;
+    margin-top: 10px;
+}
+
+.region > .title {
+    background-color: #333;
+    position: absolute;
+    padding: 0 5px;
+    top: -10px;
+    left: 20px;
+}
+
+.region > .content {
+    padding: 10px;
+}
+
+.model > .content > div > .title {
+    padding-left: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.model > .content > div > ul {
+    list-style-type: none;
+    overflow: auto;
+}
+
+.model > .content > div > ul > li {
+    border: 1px solid #AAA;
+    border-radius: 10px;
+    float: left;
+    padding: 5px;
+    margin-left: 10px;
+}
+
+.group > ul > li > div > img {
+    margin: 0 auto;
+    display: block;
+}

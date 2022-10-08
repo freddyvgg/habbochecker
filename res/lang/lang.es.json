@@ -1,3 +1,18 @@
 {
-    "MSG_HABBO_OK": "Permitido!"
+    "MSG_HABBO_OK": "Permitido!",
+    "ERR_HABBO_MODEL": "Modelo de {0} es incorrecto.",
+    "ERR_HABBO_COLOR": "Color de {0} es incorrecto.",
+    "ERR_HABBO_MODEL_COLOR": "Modelo y color de {0} son incorrectos.",
+    "ERR_HABBO_TYPE": "Tipo equivocado.",
+    "ERR_HABBO_NO_CLOTH": "Sin {0}.",
+    "ERR_HABBO_FORBHIDDEN": "{0} no permitid@.",
+    "LBL_CLOTH_SHIRT": "Camisa",
+    "LBL_CLOTH_PANTS": "Pantalones",
+    "LBL_CLOTH_SHOES": "Zapatos",
+    "LBL_CLOTH_BELT": "Correa",
+    "LBL_CLOTH_JACKET": "Chaqueta",
+    "ERR_HABBO_NOT_FOUND": "Habbo no encontrado.",
+    "ERR_HABBO_WRONG_MOTTO": "Misión equivocada.",
+    "ERR_HABBO_GROUP_NOT_FOUND": "Grupo no encontrado.",
+    "ERR_HABBO_PROFILE_NOT_PUBLIC": "Perfil de habbo no es público."
 }
