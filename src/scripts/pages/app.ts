@@ -51,9 +51,8 @@ window.onload = async function () {
             habboErrors.innerHTML = errorHtml;
             habboErrors.className = "error";
         } else {
-            habboErrors.innerHTML = "Permitido!!";
+            habboErrors.innerHTML = Localizer.get("MSG_HABBO_OK");
             habboErrors.className = "success";
         }
     }
-
 }

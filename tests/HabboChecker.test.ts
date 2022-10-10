@@ -3,8 +3,6 @@ import { Localizer } from "../src/scripts/localization/Localizer";
 import { HabboApi } from "../src/scripts/validator/api/HabboApi";
 import { HabboChecker } from "../src/scripts/validator/HabboChecker";
 import { Uniform } from "../src/scripts/validator/Unform";
-jest.mock("../src/scripts/validator/Unform");
-const MockUniform = jest.mocked(Uniform, true);
 
 describe('Habbo Checker', () => {
     let ref: HabboChecker;
