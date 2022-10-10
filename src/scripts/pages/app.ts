@@ -15,16 +15,15 @@ let habboChecker = new HabboChecker({
 
 window.onload = async function () {
     const urlParams = new URLSearchParams(window.location.search);
-    let rules = urlParams.get('rules');
     Localizer.load("es");
-    var habboPicture = document.getElementById("habboPicture") as HTMLImageElement;
-    var habboName = document.getElementById("habboName");
-    var textName = habboName.getElementsByTagName("span")[0];
-    var habboMission = document.getElementById("habboMission");
-    var textMission = habboMission.getElementsByTagName("span")[0];
-    var habboErrors = document.getElementById("habboErrors");
-    var btnSubmit = document.getElementById("submit");
-    var inputName = document.getElementById("name") as HTMLInputElement;
+    let habboPicture = document.getElementById("habboPicture") as HTMLImageElement;
+    let habboName = document.getElementById("habboName");
+    let textName = habboName.getElementsByTagName("span")[0];
+    let habboMission = document.getElementById("habboMission");
+    let textMission = habboMission.getElementsByTagName("span")[0];
+    let habboErrors = document.getElementById("habboErrors");
+    let btnSubmit = document.getElementById("submit");
+    let inputName = document.getElementById("name") as HTMLInputElement;
 
     habboPicture.hidden = true;
     habboName.hidden = true;

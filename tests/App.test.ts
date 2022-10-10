@@ -59,11 +59,11 @@ describe("App - habbo", ()=> {
         Promise.resolve()
         .then(()=>{
             let habboPicture = document.getElementById('habboPicture') as HTMLImageElement;
-            var habboName = document.getElementById("habboName");
-            var textName = habboName.getElementsByTagName("span")[0];
-            var habboMission = document.getElementById("habboMission");
-            var textMission = habboMission.getElementsByTagName("span")[0];
-            var habboErrors = document.getElementById("habboErrors");
+            let habboName = document.getElementById("habboName");
+            let textName = habboName.getElementsByTagName("span")[0];
+            let habboMission = document.getElementById("habboMission");
+            let textMission = habboMission.getElementsByTagName("span")[0];
+            let habboErrors = document.getElementById("habboErrors");
             expect(habboPicture.src).toBe("https://www.habbo.es/habbo-imaging/avatarimage?direction=2&&head_direction=2&&figure=figureString");
             expect(textName.innerText).toBe("name");
             expect(textMission.innerText).toBe("motto");
