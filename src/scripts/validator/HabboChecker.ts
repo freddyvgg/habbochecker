@@ -67,7 +67,7 @@ export class HabboChecker {
 
     private validateMission(mission: string): boolean {
         for (let item of this._rules.missions) {
-            if (mission.startsWith(item)) return true; //TODO: improve with RGEX
+            if (mission === item) return true;
         }
         return false;
     }
