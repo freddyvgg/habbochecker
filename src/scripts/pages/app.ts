@@ -14,7 +14,6 @@ let habboChecker = new HabboChecker({
 });
 
 window.onload = async function () {
-    const urlParams = new URLSearchParams(window.location.search);
     Localizer.load("es");
     let habboPicture = document.getElementById("habboPicture") as HTMLImageElement;
     let habboName = document.getElementById("habboName");
